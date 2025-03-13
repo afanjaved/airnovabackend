@@ -58,7 +58,11 @@ client.on("message", (topic, message) => {
   const data = JSON.parse(message.toString()); // Parse JSON
 
  const now = new Date();
-
+const timestamp = { 
+  fullDate: now.toISOString(), date: now.toLocaleDateString(), 
+  day: now.toLocaleString('en-US', { weekday: 'long' }), time: now.toLocaleTimeString(), 
+  hour: now.getHours(), minute: now.getMinutes(), second: now.getSeconds() 
+};
 
   const dataWithTimestamp = {
     ...data,  // Include original sensor values
