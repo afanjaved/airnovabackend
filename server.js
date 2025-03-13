@@ -57,11 +57,22 @@ client.on("message", (topic, message) => {
 
   const data = JSON.parse(message.toString()); // Parse JSON
 
+ const now = new Date();
+
+
+  const dataWithTimestamp = {
+    ...data,  // Include original sensor values
+    timestamp, // Attach timestamp details
+  };
+
   // Save to Firebase
-  ref.push(data, (error) => {
+  ref.push(dataWithTimestamp, (error) => {
     if (error) console.error("❌ Firebase Write Failed:", error);
     else console.log("✅ Data stored in Firebase!");
   });
+});
+app.get("/", (req, res) => {
+  res.send("Hello World!");
 });
 
 // Start Express Server
