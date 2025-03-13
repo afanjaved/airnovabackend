@@ -1,0 +1,21 @@
+# Node.js dependencies
+node_modules/
+npm-debug.log
+yarn-error.log
+.env
+
+# Firebase private key (VERY IMPORTANT)
+firebase-key.json
+
+# Logs
+logs/
+*.log
+debug.log
+
+# Editor files
+.vscode/
+.idea/
+.DS_Store
+
+# OS-specific files
+Thumbs.db
